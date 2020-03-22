@@ -1,5 +1,7 @@
 import React,{Component} from 'react'
 import axios from 'axios'
+import {NavLink} from "react-router-dom";
+
 // 외부 데이터 읽기
 class Released extends Component{
     // function Released(props)
@@ -78,7 +80,9 @@ class Released extends Component{
                 <div className="panel panel-primary">
                     <div className="panel-heading">{movie.title}</div>
                     <div className="panel-body">
-                        <img src={movie.poster} width={"100%"}/>
+                        <NavLink to={"/movie_detail/"+movie.mno}>
+                         <img src={movie.poster} width={"100%"}/>
+                        </NavLink>
                     </div>
                 </div>
             </div>

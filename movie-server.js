@@ -65,6 +65,29 @@ app.get("/movie_total",(req,res)=>{
         })
     })
 })
+// /detail?mno=1
+// mno:this.props.match.params.mno
+app.get('/detail',(req,res)=>{
+    var mno=req.query.mno;
+    var url="mongodb://203.224.133.121:27017";
+    Client.connect(url,(err,client)=>{
+        var db=client.db("mydb");
+        db.collection("movie").find({mno:Number(mno)}).toArray(function(err,docs){
+            res.json(docs)
+            client.close();// 몽고디비 종료
+        })
+    })
+})
+app.get('/movie_news',(req,res)=>{
+    var url="mongodb://203.224.133.121:27017";
+    Client.connect(url,(err,client)=>{
+        var db=client.db("mydb");
+        db.collection("news").find({}).toArray(function(err,docs){
+            res.json(docs)
+            client.close();// 몽고디비 종료
+        })
+    })
+})
 
 
 

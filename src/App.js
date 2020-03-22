@@ -9,6 +9,7 @@ import Scheduled from "./movie_component/Scheduled";
 import News from "./movie_component/News";
 import Find from "./movie_component/Find";
 import BoxOffice from "./movie_component/BoxOffice";
+import MovieDetail from "./movie_component/MovieDetail";
 class App extends Component{
   render(){
     return (
@@ -23,6 +24,7 @@ class App extends Component{
                       <Route path={"/news"} component={News}/>
                       <Route path={"/find"} component={Find}/>
                       <Route path={"/boxoffice"} component={BoxOffice}/>
+                      <Route path={"/movie_detail/:mno"} component={MovieDetail}/>
                   </Switch>
               </div>
              <Footer/>
