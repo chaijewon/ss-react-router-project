@@ -99,6 +99,36 @@ app.get('/movie_find',(req,res)=>{
         })
     })
 })
+// searchMainDailyBoxOffice.do
+// searchMainRealTicket.do
+// searchMainDailySeatTicket.do
+// searchMainOnlineDailyBoxOffice.do
+// http://www.kobis.or.kr/kobis/business/main/main.do
+app.get("/movie_home",(req,res)=>{
+    var no=req.query.no;
+    var site='';
+    if(no==1)
+    {
+        site="searchMainDailyBoxOffice.do";
+    }
+    else if(no==2)
+    {
+        site="searchMainRealTicket.do";
+    }
+    else if(no==3)
+    {
+        site="searchMainDailySeatTicket.do";
+    }
+    else if(no==4)
+    {
+        site="searchMainOnlineDailyBoxOffice.do";
+    }
+    var url="http://www.kobis.or.kr/kobis/business/main/"+site;
+    request({url:url},function (err,request,json) {
+
+        res.json(JSON.parse(json));
+    })
+})
 
 
 

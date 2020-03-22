@@ -17,6 +17,7 @@ class Header extends Component{
                         <li><NavLink to={"/news"}>뉴스</NavLink></li>
                         <li><NavLink to={"/find"}>찾기(Jquery)</NavLink></li>
                         <li><NavLink to={"/reserve"}>찾기(React)</NavLink></li>
+                        <li><NavLink to={"/music"}>지니뮤직</NavLink></li>
                     </ul>
                 </div>
             </nav>
