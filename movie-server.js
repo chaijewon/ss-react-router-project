@@ -89,6 +89,17 @@ app.get('/movie_news',(req,res)=>{
     })
 })
 
+app.get('/movie_find',(req,res)=>{
+    var url="mongodb://203.224.133.121:27017";
+    Client.connect(url,(err,client)=>{
+        var db=client.db("mydb");
+        db.collection("movie").find({}).toArray(function(err,docs){
+            res.json(docs)
+            client.close();// 몽고디비 종료
+        })
+    })
+})
+
 
 
 

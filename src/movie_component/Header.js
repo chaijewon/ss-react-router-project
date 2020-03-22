@@ -15,8 +15,8 @@ class Header extends Component{
                         <li><NavLink to={"/scheduled"}>개봉예정영화</NavLink></li>
                         <li><NavLink to={"boxoffice"}>박스오피스</NavLink></li>
                         <li><NavLink to={"/news"}>뉴스</NavLink></li>
-                        <li><NavLink to={"/find"}>영화찾기</NavLink></li>
-                        <li><NavLink to={"/reserve"}>영화예매</NavLink></li>
+                        <li><NavLink to={"/find"}>찾기(Jquery)</NavLink></li>
+                        <li><NavLink to={"/reserve"}>찾기(React)</NavLink></li>
                     </ul>
                 </div>
             </nav>

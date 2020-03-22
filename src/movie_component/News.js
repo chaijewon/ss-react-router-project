@@ -20,7 +20,7 @@ class News extends Component{
                         <a href={news.link}><img src={news.poster} width={"100%"}/></a>
                     </td>
                     <td width={"70%"}>
-                        {news.title}
+                        <b>{news.title}</b>
                     </td>
                 </tr>
                <tr>

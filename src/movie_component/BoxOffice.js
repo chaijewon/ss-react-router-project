@@ -86,7 +86,7 @@ class BoxOffice extends Component{
         return(
             <React.Fragment>
                 <div className={"row"}>
-                    <h1 className={"text-center"}>현재상영영화</h1>
+                    <h1 className={"text-center"}>박스오피스</h1>
                     {html}
                 </div>
                 <div class={"row text-center"}>
