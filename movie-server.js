@@ -22,6 +22,7 @@ app.get("/real_data",(req,res)=>{
 
     })*/
     var page=req.query.page;
+    var type=req.query.type;
     var rowSize=9;
     var skip=(page*rowSize)-rowSize;
     /*
@@ -42,7 +43,7 @@ app.get("/real_data",(req,res)=>{
         // SELECT * FROM movie WHERE mno=1
         // find({mno:1})
         // {} {} ==> [{},{}]
-        db.collection("movie").find({type:1}).skip(skip).limit(rowSize).toArray(function(err,docs){
+        db.collection("movie").find({type:Number(type)}).skip(skip).limit(rowSize).toArray(function(err,docs){
             res.json(docs)
             client.close();// 몽고디비 종료
         })
@@ -52,10 +53,12 @@ app.get("/real_data",(req,res)=>{
 // @RequestMapping("a.do")
 app.get("/movie_total",(req,res)=>{
     // 몽고디비 연결
+    var type=req.query.type
     var url="mongodb://203.224.133.121:27017"
     Client.connect(url,(err,client)=>{
         var db=client.db("mydb");
-        db.collection("movie").find({type:1}).count(function(err,count){
+        db.collection("movie").find({type:Number(type)}).count(function(err,count){
+            console.log(count)
             res.json({totalpage:Math.ceil(count/9.0)})
             client.close();
             return count;
